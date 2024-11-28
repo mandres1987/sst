@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normativa de Trabajo en Altura en Colombia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <h1>Normativa de Trabajo en Altura en Colombia</h1>
+   En Colombia, el trabajo en altura está regulado por la Resolución 1409 de 2012 del Ministerio de Trabajo, que establece los requisitos mínimos para garantizar la seguridad y salud de los trabajadores que realizan labores en alturas superiores a 1.5 metros sobre el nivel del suelo. Esta resolución es de suma importancia para garantizar la prevención de accidentes y la protección de la integridad física de los trabajadores que realizan este tipo de labores.
+
+Algunos aspectos relevantes de la Resolución 1409 de 2012 incluyen:
+
+1. Capacitación: Establece la obligatoriedad de que los trabajadores que realicen labores en altura reciban capacitación específica sobre los riesgos asociados, medidas de prevención, uso de equipos de protección personal, procedimientos de emergencia, entre otros aspectos.
+
+2. Equipos de protección personal (EPP): Establece los requisitos para el uso de equipos de protección personal, como arneses, líneas de vida, cascos, entre otros, así como la obligatoriedad de su uso en labores en altura.
+
+3. Evaluación de riesgos: La normativa exige la realización de evaluaciones de riesgos antes de llevar a cabo labores en altura, con el fin de identificar y controlar los peligros asociados a estas labores.
+
+4. Certificaciones y autorizaciones: La normativa puede requerir que los trabajadores que realizan labores en altura obtengan certificaciones específicas que avalen su capacitación y competencia para llevar a cabo estas labores de manera segura.
+
+Es importante destacar que la normativa sobre trabajo en altura puede estar sujeta a actualizaciones, por lo que es fundamental verificar la normativa vigente en el Ministerio de Trabajo de Colombia o en entidades competentes para asegurarse de cumplir con los requisitos legales.
+
+Si necesitas más información detallada sobre las certificaciones específicas y la normativa vigente en Colombia, te recomendaría consultar directamente las fuentes oficiales o entidades competentes en materia de seguridad laboral en el país.
+
+    <button id="download-pdf">Descargar PDF</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function () {
+            const element = document.body;
+            html2pdf()
+                .from(element)
+                .save('normativa_trabajo_altura_colombia.pdf');
+        });
+    </script>
+</body>
+</html>
