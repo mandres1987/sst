@@ -1,66 +1,58 @@
 <?php
-// Configuración de la conexión a la base de datos
-$servidor = "127.0.0.1"; 
-$usuario = "micro";
-$clave = "micro_itc";
-$bd = "ats_db";
+// Conectar a la base de datos
+$coneccion = new mysqli("localhost", "usuario", "contraseña", "base_de_datos");
 
-// Establecer la conexión a la base de datos
-$coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
-
-// Verificar si la conexión fue exitosa
-if (!$coneccion) {
-    die("Conexión fallida: " . mysqli_connect_error());
+// Verificar la conexión
+if ($coneccion->connect_error) {
+    die("Conexión fallida: " . $coneccion->connect_error);
 }
 
-// Recoger los datos del formulario y evitar valores vacíos
-$ats_numero = $_POST['ats_numero'] ?? '';
-$permiso_trabajo_numero = $_POST['permiso_trabajo_numero'] ?? '';
-$area_trabajo = $_POST['area_trabajo'] ?? '';
-$contratista = $_POST['contratista'] ?? '';
-$trabajo_realizar = $_POST['trabajo_realizar'] ?? '';
-$autorizado_por = $_POST['autorizado_por'] ?? '';
-$fecha_inicio = $_POST['fecha_inicio'] ?? '';
-$hora_inicio = $_POST['hora_inicio'] ?? '';
-$fecha_finalizacion = $_POST['fecha_finalizacion'] ?? '';
-$hora_finalizacion = $_POST['hora_finalizacion'] ?? '';
-$equipos = isset($_POST['equipos']) ? implode(', ', $_POST['equipos']) : '';
-$otros_equipos = $_POST['otros_equipos'] ?? '';
-$autorizada = $_POST['autorizada'] ?? '';
-$riesgos = $_POST['riesgos'] ?? '';
-$epp = $_POST['epp'] ?? '';
-$equipos_necesarios = $_POST['equipos_necesarios'] ?? '';
-$bloqueos = $_POST['bloqueos'] ?? '';
-$comunicacion = $_POST['comunicacion'] ?? '';
-$senalizacion = $_POST['senalizacion'] ?? '';
-$orden = $_POST['orden'] ?? '';
-$entender = $_POST['entender'] ?? '';
-$saber = $_POST['saber'] ?? '';
-$drogas = $_POST['drogas'] ?? '';
-$salud = $_POST['salud'] ?? '';
-$trabajos_peligrosos = isset($_POST['trabajos']) ? implode(', ', $_POST['trabajos']) : '';
+// Recoger los datos del formulario
+$ats_numero = $_POST['ats_numero'];
+$permiso_trabajo_numero = $_POST['permiso_trabajo_numero'];
+$area_trabajo = $_POST['area_trabajo'];
+$contratista = $_POST['contratista'];
+$trabajo_realizar = $_POST['trabajo_realizar'];
+$autorizado_por = $_POST['autorizado_por'];
+$fecha_inicio = $_POST['fecha_inicio'];
+$hora_inicio = $_POST['hora_inicio'];
+$fecha_finalizacion = $_POST['fecha_finalizacion'];
+$hora_finalizacion = $_POST['hora_finalizacion'];
+$equipos = $_POST['equipos'];
+$autorizada = $_POST['autorizada'];
+$riesgos = $_POST['riesgos'];
+$epp = $_POST['epp'];
+$equipos_necesarios = $_POST['equipos_necesarios'];
+$bloqueos = $_POST['bloqueos'];
+$comunicacion = $_POST['comunicacion'];
+$senalizacion = $_POST['senalizacion'];
+$orden = $_POST['orden'];
+$entender = $_POST['entender'];
+$saber = $_POST['saber'];
+$drogas = $_POST['drogas'];
+$salud = $_POST['salud'];
+$trabajos_peligrosos = $_POST['trabajos_peligrosos'];
 
-// Consulta SQL utilizando sentencias preparadas
+// Preparar la consulta SQL
 $sql = $coneccion->prepare("INSERT INTO ats_form (ats_numero, permiso_trabajo_numero, area_trabajo, contratista, trabajo_realizar, autorizado_por, 
                        fecha_inicio, hora_inicio, fecha_finalizacion, hora_finalizacion, equipos, autorizada, riesgos, epp,
                        equipos_necesarios, bloqueos, comunicacion, senalizacion, orden, entender, saber, drogas, salud, trabajos_peligrosos) 
                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 // Vincular las variables con la consulta preparada
-$sql->bind_param("ssssssssssssssssssssss", $ats_numero, $permiso_trabajo_numero, $area_trabajo, $contratista, $trabajo_realizar, 
+$sql->bind_param("sssssssssssssssssssssss", $ats_numero, $permiso_trabajo_numero, $area_trabajo, $contratista, $trabajo_realizar, 
                  $autorizado_por, $fecha_inicio, $hora_inicio, $fecha_finalizacion, $hora_finalizacion, $equipos, $autorizada, 
                  $riesgos, $epp, $equipos_necesarios, $bloqueos, $comunicacion, $senalizacion, $orden, $entender, $saber, 
                  $drogas, $salud, $trabajos_peligrosos);
 
-// Ejecutar la consulta y verificar si se inserta correctamente
+// Ejecutar la consulta
 if ($sql->execute()) {
-    echo "Nuevo registro creado exitosamente";
+    echo "Datos insertados correctamente";
 } else {
-    echo "Error: " . $sql->error;
+    echo "Error al insertar los datos: " . $sql->error;
 }
 
 // Cerrar la conexión
-$sql->close();
 $coneccion->close();
 ?>
 
