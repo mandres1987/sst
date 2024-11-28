@@ -4,7 +4,7 @@ $servername = "127.0.0.1";
 $username = "micro";
 $password = "micro_itc";
 $dbname = "ats_db";
-<?php
+
 
 
 // Crear la conexión
