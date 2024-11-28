@@ -40,6 +40,7 @@ if (isset($_POST['enviar'])) {
     die("Conexión fallida: " . mysqli_connect_error());
 }
 
+
         // Cerrar la declaración
         $stmt->close();
     } else {
