@@ -5,7 +5,7 @@ $usuario = "micro";
 $clave = "micro_itc";
 $bd = "ejemplo";
 
-
+// Establecer la conexión a la base de datos
     // Establecer la conexión a la base de datos
     $coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
 
