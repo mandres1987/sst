@@ -1,99 +1,222 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Mensajes de seguridad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes de Seguridad</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
             justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-            background-color: #f0f0f0;
+            gap: 20px;
         }
+
         .message-box {
+            width: 300px;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            background-color: #cce5ff; /* Color de fondo predeterminado */
+            transition: transform 0.3s ease;
         }
+
+        .message-box:hover {
+            transform: translateY(-10px);
+        }
+
         .message-box p {
+            font-size: 16px;
+            line-height: 1.5;
             margin: 0;
+            font-weight: bold;
         }
+
+        .blue-bg {
+            background-color: #cce5ff;
+            border-left: 5px solid #007bff;
+        }
+
         .red-bg {
             background-color: #ffcccc;
+            border-left: 5px solid #ff4d4d;
         }
+
         .green-bg {
             background-color: #d5f5e3;
+            border-left: 5px solid #28a745;
         }
-        /* Agrega estilos de fondo para los otros colores aquí */
+
+        .purple-bg {
+            background-color: #f3e5f5;
+            border-left: 5px solid #9b59b6;
+        }
+
+        .orange-bg {
+            background-color: #fff3e0;
+            border-left: 5px solid #ff9800;
+        }
+
+        .teal-bg {
+            background-color: #e0f2f1;
+            border-left: 5px solid #00796b;
+        }
+
+        .brown-bg {
+            background-color: #f4e1d2;
+            border-left: 5px solid #8d6e63;
+        }
+
+        .navy-bg {
+            background-color: #e1f5fe;
+            border-left: 5px solid #1e3d59;
+        }
+
+        .crimson-bg {
+            background-color: #ffebee;
+            border-left: 5px solid #d32f2f;
+        }
+
+        .indigo-bg {
+            background-color: #e8eaf6;
+            border-left: 5px solid #3f51b5;
+        }
+
+        .darkgreen-bg {
+            background-color: #e8f5e9;
+            border-left: 5px solid #388e3c;
+        }
+
+        .darkred-bg {
+            background-color: #ffebee;
+            border-left: 5px solid #b71c1c;
+        }
+
+        .darkorange-bg {
+            background-color: #fff3e0;
+            border-left: 5px solid #f57c00;
+        }
+
+        .darkviolet-bg {
+            background-color: #f3e5f5;
+            border-left: 5px solid #7b1fa2;
+        }
+
+        .darkcyan-bg {
+            background-color: #e0f7fa;
+            border-left: 5px solid #00695c;
+        }
+
+        .darkblue-bg {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+        }
+
+        .darkmagenta-bg {
+            background-color: #f3e5f5;
+            border-left: 5px solid #9c27b0;
+        }
+
+        .darkslategray-bg {
+            background-color: #eceff1;
+            border-left: 5px solid #607d8b;
+        }
+
+        .darkolivegreen-bg {
+            background-color: #f1f8e9;
+            border-left: 5px solid #388e3c;
+        }
+
+        .darkorchid-bg {
+            background-color: #f3e5f5;
+            border-left: 5px solid #8e24aa;
+        }
+
+        .darkgoldenrod-bg {
+            background-color: #fff3e0;
+            border-left: 5px solid #ffb300;
+        }
+
+        /* Colores debajo de cada mensaje */
+        .message-box:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 5px;
+            border-radius: 3px;
+            margin-top: 15px;
+            background: linear-gradient(to right, #ff7f50, #ff6347, #ff4500);
+        }
+
     </style>
 </head>
 <body>
     <div class="message-box blue-bg">
-        <p style="color: blue;">La seguridad no es un accidente</p>
+        <p>¡La seguridad no es un accidente!</p>
     </div>
     <div class="message-box red-bg">
-        <p style="color: red;">Nunca olvides la seguridad</p>
+        <p>¡Nunca olvides que la seguridad es lo primero!</p>
     </div>
     <div class="message-box green-bg">
-        <p style="color: green;">Mejor estar seguro hoy</p>
+        <p>Hoy más que nunca, mejor estar seguro que lamentar.</p>
     </div>
     <div class="message-box purple-bg">
-        <p style="color: purple;">Defienda la seguridad</p>
+        <p>¡Defiende la seguridad con cada acción!</p>
     </div>
     <div class="message-box orange-bg">
-        <p style="color: orange;">Nuestro objetivo: cero daños</p>
+        <p>El objetivo es claro: cero accidentes, cero daños.</p>
     </div>
     <div class="message-box teal-bg">
-        <p style="color: teal;">Te necesitamos: trabaja con seguridad</p>
+        <p>¡Te necesitamos! Trabaja siempre con seguridad.</p>
     </div>
     <div class="message-box brown-bg">
-        <p style="color: brown;">Más vale prevenir que curar</p>
+        <p>Más vale prevenir que lamentar.</p>
     </div>
     <div class="message-box navy-bg">
-        <p style="color: navy;">La seguridad es gratis, usa mucha</p>
+        <p>La seguridad es gratis, úsala siempre.</p>
     </div>
     <div class="message-box crimson-bg">
-        <p style="color: crimson;">Preparar y prevenir en lugar de reparar y arrepentirse</p>
+        <p>Prevenir es mucho mejor que reparar.</p>
     </div>
     <div class="message-box indigo-bg">
-        <p style="color: indigo;">¡Para! ¡Piensa! Entonces, ¡actúa!</p>
+        <p>¡Detente, piensa y luego actúa con seguridad!</p>
     </div>
     <div class="message-box darkgreen-bg">
-        <p style="color: darkgreen;">Mantenlo sano y salvo</p>
+        <p>¡Mantén siempre la seguridad como tu prioridad!</p>
     </div>
     <div class="message-box darkred-bg">
-        <p style="color: darkred;">KISS Keep it Safe and Sound, un popular eslogan de seguridad</p>
+        <p>¡KISS! Mantén todo seguro y bajo control.</p>
     </div>
     <div class="message-box darkorange-bg">
-        <p style="color: darkorange;">Cero compromiso con la seguridad</p>
+        <p>Cero compromiso con los riesgos, solo seguridad.</p>
     </div>
     <div class="message-box darkviolet-bg">
-        <p style="color: darkviolet;">Salir antes, conducir más despacio, vivir más tiempo</p>
+        <p>Salir antes, conducir más despacio, vivir más tiempo.</p>
     </div>
     <div class="message-box darkcyan-bg">
-        <p style="color: darkcyan;">Si crees que no te va a pasar a ti, busca a la persona a la que le pasó</p>
+        <p>Si piensas que no te va a pasar, busca a alguien a quien le haya pasado.</p>
     </div>
     <div class="message-box darkblue-bg">
-        <p style="color: darkblue;">Cero compromiso con la seguridad</p>
+        <p>La seguridad es responsabilidad de todos, ¡actúa ya!</p>
     </div>
     <div class="message-box darkmagenta-bg">
-        <p style="color: darkmagenta;">La seguridad es lo primero y dura más</p>
+        <p>La seguridad es lo primero, ¡tu bienestar también!</p>
     </div>
     <div class="message-box darkslategray-bg">
-        <p style="color: darkslategray;">Cuidado con lo que haces, podría ser el último</p>
+        <p>Cuidado con lo que haces, podría ser el último error.</p>
     </div>
     <div class="message-box darkolivegreen-bg">
-        <p style="color: darkolivegreen;">No prepararse = Prepararse para fracasar</p>
+        <p>No prepararse es prepararse para fracasar.</p>
     </div>
     <div class="message-box darkorchid-bg">
-        <p style="color: darkorchid;">El hecho de que siempre lo hayas hecho así, no hace que sea correcto</p>
+        <p>El hecho de que siempre lo hayas hecho de una forma, no significa que sea lo correcto.</p>
     </div>
     <div class="message-box darkgoldenrod-bg">
-        <p style="color: darkgoldenrod;">La “E” es de elevación: levanta con las piernas y deja la espalda al margen</p>
+        <p>Levanta con las piernas, no con la espalda.</p>
     </div>
 </body>
 </html>
+

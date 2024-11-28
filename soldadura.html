@@ -4,10 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Certificación de Soldadura en Colombia</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <style>
+    body {
+      background: linear-gradient(to bottom, #d3cce3, #e9e4f0); /* Degradado suave */
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Estilos para el contenido principal */
+    .content-box {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: 40px auto;
+      text-align: justify;
+    }
+
     h1 {
       text-align: center;
+      color: #4CAF50;
     }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
     .dropdown-content {
       display: none;
       padding: 10px;
@@ -16,40 +44,63 @@
       border-radius: 5px;
       margin-top: 5px;
     }
+
     .dropdown-content.active {
       display: block;
     }
-    p {
-      font-family: 'Arial', sans-serif;
-      font-size: 18px;
-      color: #000;
+
+    p:hover {
+      color: #45a049;
+    }
+
+    #download-pdf {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #download-pdf:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <div>
+
+  <div class="content-box" id="content">
     <h1>Certificación de Soldadura en Colombia</h1>
-    <p onclick="toggleDropdown('dropdown1')">En Colombia, la certificación de soldadura es un proceso mediante el cual se avala que un soldador cumple con ciertos estándares de competencia y calidad en la realización de soldaduras. Esta certificación es importante tanto para los soldadores como para las empresas que requieren servicios de soldadura, ya que garantiza que las soldaduras realizadas cumplen con los requisitos técnicos y de seguridad establecidos.</p>
+    <p onclick="toggleDropdown('dropdown1')">En Colombia, la certificación de soldadura es un proceso mediante el cual se avala que un soldador cumple con ciertos estándares de competencia y calidad en la realización de soldaduras. Esta certificación es esencial para garantizar la seguridad, calidad y durabilidad de las estructuras soldadas en la industria, como la construcción, la fabricación de maquinaria y la industria petrolera.</p>
     <div id="dropdown1" class="dropdown-content">
-      <p>En Colombia, la certificación de soldadura es un proceso mediante el cual se avala que un soldador cumple con ciertos estándares de competencia y calidad en la realización de soldaduras. Esta certificación es importante tanto para los soldadores como para las empresas que requieren servicios de soldadura, ya que garantiza que las soldaduras realizadas cumplen con los requisitos técnicos y de seguridad establecidos.</p>
+      <p>Las entidades competentes que regulan y certifican las habilidades de los soldadores en Colombia incluyen el Instituto Colombiano de Normas Técnicas y Certificación (ICONTEC) y la Asociación Colombiana de Soldadura (ACOLSOLD). Estas organizaciones se encargan de definir los estándares de calidad y los requisitos que deben cumplir tanto los soldadores como las empresas que requieren estos servicios.</p>
     </div>
-    <p onclick="toggleDropdown('dropdown2')">Las certificaciones de soldadura en Colombia suelen estar reguladas por entidades o instituciones competentes en materia de soldadura y calidad, como el Instituto Colombiano de Normas Técnicas y Certificación (ICONTEC), la Asociación Colombiana de Soldadura (ACOLSOLD), u otras organizaciones reconocidas.</p>
+    <p onclick="toggleDropdown('dropdown2')">Los riesgos asociados con la soldadura incluyen la exposición a altas temperaturas, gases tóxicos, radiación ultravioleta, y riesgos mecánicos. Es fundamental que los soldadores estén capacitados en el uso de equipos de protección personal (EPP) y en la aplicación de técnicas de soldadura seguras.</p>
     <div id="dropdown2" class="dropdown-content">
-      <p>Las certificaciones de soldadura en Colombia suelen estar reguladas por entidades o instituciones competentes en materia de soldadura y calidad, como el Instituto Colombiano de Normas Técnicas y Certificación (ICONTEC), la Asociación Colombiana de Soldadura (ACOLSOLD), u otras organizaciones reconocidas.</p>
+      <p>El proceso de soldadura debe ser realizado en áreas bien ventiladas, y los soldadores deben usar ropa ignífuga, guantes, protección ocular y respiratoria para minimizar estos riesgos.</p>
     </div>
-    <p onclick="toggleDropdown('dropdown3')">El proceso de certificación de soldadura generalmente implica la evaluación de las habilidades del soldador en la realización de soldaduras según estándares específicos, así como la verificación de su conocimiento sobre técnicas de soldadura, tipos de materiales, equipos utilizados y medidas de seguridad.</p>
+    <p onclick="toggleDropdown('dropdown3')">El proceso de certificación generalmente incluye la evaluación de las habilidades del soldador en técnicas como soldadura por arco eléctrico, TIG, MIG, y la soldadura por gas, así como el uso adecuado de herramientas y equipos de protección.</p>
     <div id="dropdown3" class="dropdown-content">
-      <p>El proceso de certificación de soldadura generalmente implica la evaluación de las habilidades del soldador en la realización de soldaduras según estándares específicos, así como la verificación de su conocimiento sobre técnicas de soldadura, tipos de materiales, equipos utilizados y medidas de seguridad.</p>
+      <p>Las certificaciones pueden ser específicas para ciertos tipos de soldadura, como soldadura de acero inoxidable, soldadura de aluminio, o soldadura de tuberías, dependiendo del sector industrial.</p>
     </div>
-    <p onclick="toggleDropdown('dropdown4')">Las certificaciones de soldadura pueden ser requeridas en diversos sectores industriales, como la construcción, la industria petrolera, la fabricación de estructuras metálicas, entre otros. Además, pueden ser específicas para ciertos tipos de soldadura (por ejemplo, soldadura por arco eléctrico, soldadura por gas, soldadura TIG, soldadura MIG, etc.) o para materiales particulares (acero, aluminio, acero inoxidable, etc.).</p>
+    <p onclick="toggleDropdown('dropdown4')">La ley colombiana establece normativas específicas para sectores industriales como la construcción, la minería, la energía y el petróleo, que exigen altos estándares de calidad y seguridad en las soldaduras realizadas en sus proyectos.</p>
     <div id="dropdown4" class="dropdown-content">
-      <p>Las certificaciones de soldadura pueden ser requeridas en diversos sectores industriales, como la construcción, la industria petrolera, la fabricación de estructuras metálicas, entre otros. Además, pueden ser específicas para ciertos tipos de soldadura (por ejemplo, soldadura por arco eléctrico, soldadura por gas, soldadura TIG, soldadura MIG, etc.) o para materiales particulares (acero, aluminio, acero inoxidable, etc.).</p>
+      <p>Por ejemplo, en la industria petrolera, se requiere que los soldadores estén certificados en soldadura de alta presión, mientras que en la construcción se exigen estándares de durabilidad y resistencia a las condiciones ambientales extremas.</p>
     </div>
-    <p onclick="toggleDropdown('dropdown5')">Es importante para los soldadores y las empresas estar al tanto de los requisitos y normativas específicas en Colombia relacionadas con la certificación de soldadura, así como mantenerse actualizados sobre los estándares y procedimientos necesarios para obtener y mantener dichas certificaciones.</p>
+    <p onclick="toggleDropdown('dropdown5')">Las empresas y los soldadores deben cumplir con regulaciones adicionales en cuanto a la evaluación de riesgos laborales, mantenimiento de equipos, y gestión de residuos generados por los procesos de soldadura.</p>
     <div id="dropdown5" class="dropdown-content">
-      <p>Es importante para los soldadores y las empresas estar al tanto de los requisitos y normativas específicas en Colombia relacionadas con la certificación de soldadura, así como mantenerse actualizados sobre los estándares y procedimientos necesarios para obtener y mantener dichas certificaciones.</p>
+      <p>Es importante que las empresas mantengan registros de todas las certificaciones y formaciones de sus soldadores, así como realizar auditorías internas para garantizar el cumplimiento de las normativas de seguridad y calidad vigentes.</p>
     </div>
+    <p onclick="toggleDropdown('dropdown6')">Las normativas de soldadura en Colombia están alineadas con los estándares internacionales, como los establecidos por la American Welding Society (AWS), lo que asegura que los soldadores colombianos tengan una formación que les permita competir en mercados globales.</p>
+    <div id="dropdown6" class="dropdown-content">
+      <p>Además de la certificación nacional, los soldadores pueden optar por certificaciones internacionales que les permitan acceder a proyectos de mayor envergadura y estándares de calidad internacionales.</p>
+    </div>
+
+    <button id="download-pdf">Descargar PDF</button>
   </div>
 
   <script>
@@ -57,6 +108,13 @@
       var dropdown = document.getElementById(id);
       dropdown.classList.toggle('active');
     }
+
+    document.getElementById('download-pdf').addEventListener('click', function () {
+        const element = document.getElementById('content');
+        html2pdf()
+            .from(element)
+            .save('certificacion_soldadura_colombia.pdf');
+    });
   </script>
 </body>
 </html>

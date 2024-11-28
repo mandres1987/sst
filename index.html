@@ -1,51 +1,63 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-	<head>
-		 <!-- Encabezado de la página -->
-		 <meta charset="UTF-8">
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		 <title>Pagina Web</title>
-		 
-		  <!-- fuente impresionante enlace cdn -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-		<link rel="stylesheet" href="style.css" >
-	
-	</head>
-	
-	<body>
-	
-		<header>
+<head>
     <!-- Encabezado de la página -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 512 342">
-        <!-- Icono SVG -->
-        <g fill="none">
-            <path fill="#FFDA44" d="M0 .331h512v341.337H0z"/>
-            <path d="M0 .331h512v113.775H0zm0 227.551h512v113.775H0z" fill="#D80027"/>
-        </g>
-    </svg>
-    <nav class="navbar">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web</title>
+    
+    <!-- Enlace a Font Awesome para usar íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Enlace al archivo CSS externo para estilos -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuente externa desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Inicio del encabezado de la página -->
+    <header>
+        <!-- Icono SVG (representación gráfica vectorial) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 512 342">
+            <g fill="none">
+                <!-- Fondo amarillo -->
+                <path fill="#FFDA44" d="M0 .331h512v341.337H0z"/>
+                <!-- Franjas rojas -->
+                <path d="M0 .331h512v113.775H0zm0 227.551h512v113.775H0z" fill="#D80027"/>
+            </g>
+        </svg>
+
         <!-- Barra de navegación -->
-        <ul>
-            <!-- Lista de elementos de navegación -->
-            <li><a href="#home" class="active">Inicio</a></li>
-            <!-- Elemento activo -->
-            <li><a href="#about">Nosotros</a></li>
-            <!-- Enlace a la sección "Nosotros" -->
-            <li><a href="#course">Cursos</a></li>
-            <!-- Enlace a la sección "Cursos" -->
-            <li><a href="#review">Testimoniales</a></li>
-            <!-- Enlace a la sección "Testimoniales" -->
-            <li><a href="#contact">Contacto</a></li>
-            <!-- Enlace a la sección "Contacto" -->
-            <li><a href="http://localhost/pagina/index.php">Registrarse</a></li>
-            <!-- Enlace para registrarse -->
-        </ul>
-    </nav>
-    <div class="fas fa-bars"></div>
-    <!-- Icono de hamburguesa -->
-</header>
+        <nav class="navbar">
+            <ul>
+                <!-- Lista de elementos de navegación -->
+                <li><a href="#home" class="active">Inicio</a></li>
+                <!-- Enlace activo -->
+                <li><a href="#about">Nosotros</a></li>
+                <!-- Enlace a la sección "Nosotros" -->
+                <li><a href="#course">Cursos</a></li>
+                <!-- Enlace a la sección "Cursos" -->
+                <li><a href="#review">Testimoniales</a></li>
+                <!-- Enlace a la sección "Testimoniales" -->
+                <li><a href="#contact">Contacto</a></li>
+                <!-- Enlace a la sección "Contacto" -->
+              <li><a href="https://atsdigitall.store/index.php" class="register-btn">Registrarse</a></li>
+                <!-- Botón destacado para registrarse -->
+            </ul>
+        </nav>
+        
+        <!-- Ícono de hamburguesa para navegación móvil -->
+        <div class="fas fa-bars" onclick="toggleMenu()"></div>
+    </header>
+
+    <!-- JavaScript para el menú de navegación móvil -->
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
 
 		
 		
@@ -119,6 +131,7 @@
         </div>
     </div>
 </section>
+
 
 <script>
     // Lista de colores suaves

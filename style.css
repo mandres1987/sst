@@ -10,6 +10,34 @@
 	box-sizing:border-box;
 	
 }
+/* Estilos para las cajas de productos */
+.product .box-container .box {
+    height: 30rem;
+    width: 25rem;
+    background: #161e4a;  /* Fondo oscuro */
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem 5rem rgba(0, 0, 0, .5);
+    margin: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.box {
+    background: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto de movimiento al pasar el mouse */
+.box:hover {
+    transform: translateY(-10px); /* Elevar 10px hacia arriba */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
 
 *::selection {
 	background:#ff046f;
@@ -196,16 +224,16 @@ header .fa-bars {
 }
 
 .product .box-container .box i {
-	height:6rem;
-	width:6rem;
-	line-height: 6rem;
-	text-align: center;
-	border-radius: 50%;
-	color:#fff;
-	background:#c63bfa;
-	font-size:3rem;
-	margin: 2rem 0;
-	transition: .2s;
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #c63bfa;
+    font-size: 3rem;
+    margin: 2rem 0;
+    transition: background-color 0.3s ease;
 }
 .box {
     /* Estilos base para los cuadros */
@@ -221,26 +249,31 @@ header .fa-bars {
     text-align: center;
 }
 .product .box-container .box h3 {
-	font-size: 2rem;
-	color: #ff046f;
-	transition: .2s;
+    font-size: 2rem;
+    color: #ff046f; /* Color inicial suave */
+    transition: color 0.3s ease; /* Transición suave de color */
 }
 
 .product .box-container .box p {
-	font-size: 1.3rem;
-	padding: .7rem 2rem;
-	color: #fff;
-	
+    font-size: 1.3rem;
+    padding: .7rem 2rem;
+    color: #ddd; /* Color de texto más suave */
+    transition: color 0.3s ease;
+}
+
+/* Ajustar color del texto cuando se hace hover en la caja */
+.product .box-container .box:hover p {
+    color: #f3f3f3; /* Texto más claro para mejorar legibilidad */
 }
 
 
-
+/* Hover en el icono */
 .product .box-container .box:hover i {
-	background:#ff046f;
+    background: #ff046f; /* Icono con fondo suave al hacer hover */
 }
 
 .product .box-container .box:hover h3 {
-	color:#c63bfa;
+    color: #c63bfa; /* Color más suave al hacer hover */
 }
 
 .product button {
@@ -623,4 +656,9 @@ header .fa-bars {
 
 .oculto {
   display: none;
+}
+/* Hover en las cajas de producto */
+.product .box-container .box:hover {
+    transform: scale(1.05);  /* Agranda ligeramente la caja */
+    background-color: #222d58;  /* Fondo más suave para resaltar */
 }

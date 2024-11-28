@@ -5,7 +5,6 @@ $usuario = "micro";
 $clave = "micro_itc";
 $bd = "ejemplo";
 
-
     // Establecer la conexión a la base de datos
     $coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
 
@@ -17,8 +16,7 @@ $bd = "ejemplo";
         $edad = $_POST['edad'];
         $correo = $_POST['correo'];
         $telefono = $_POST['telefono'];
-
-        // Crear la consulta para insertar los datos en la base de datos
+      // Crear la consulta para insertar los datos en la base de datos
         $insertar = "INSERT INTO datos VALUES ('$nombre', '$apellido', '$edad', '$correo', '$telefono')";
     
         // Ejecutar la consulta
@@ -29,10 +27,9 @@ $bd = "ejemplo";
             // Mostrar un mensaje de alerta en caso de éxito
             echo "<script>alert('Datos Registrados');</script>";
         }
+       }
     }
 ?>  
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,7 +51,7 @@ $bd = "ejemplo";
         form {
             max-width: 400px;
             margin: 0 auto;
-            background-color: #fff;
+ background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -66,7 +63,7 @@ $bd = "ejemplo";
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+    border-radius: 5px;
         }
         /* Estilos para el botón de enviar */
         input[type="submit"] {
@@ -78,7 +75,7 @@ $bd = "ejemplo";
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
+}
         input[type="submit"]:hover {
             background-color: #45a049;
         }
@@ -90,7 +87,7 @@ $bd = "ejemplo";
             position: absolute;
             bottom: 0;
             left: 0;
-            transition: width 0.3s ease; /* Agregar una transición suave para la barra de progreso */
+ transition: width 0.3s ease; /* Agregar una transición suave para la barra de progreso */
         }
         /* Estilos para los mensajes de error */
         .error-message {
@@ -103,7 +100,7 @@ $bd = "ejemplo";
 <body>
     <div class="container">
         <!-- Contenedor del logo y el título -->
-        <img src="hombre.PNG" alt="User Logo" width="100">
+        <img src="images/hombre.png" alt="User Logo" width="100">
         <h2>Registro de Usuario</h2> <!-- Título del formulario -->
     </div>
     <!-- Formulario de registro -->
@@ -113,7 +110,7 @@ $bd = "ejemplo";
         <div class="error-message" id="nombre-error"></div> <!-- Mostrar mensaje de error para el nombre -->
         <input type="text" name="apellido" placeholder="Apellido" required>
         <div class="error-message" id="apellido-error"></div> <!-- Mostrar mensaje de error para el apellido -->
-        <input type="text" name="edad" placeholder="Edad" required>
+ <input type="text" name="edad" placeholder="Edad" required>
         <div class="error-message" id="edad-error"></div> <!-- Mostrar mensaje de error para la edad -->
         <input type="text" name="correo" placeholder="Correo electrónico" required>
         <div class="error-message" id="correo-error"></div> <!-- Mostrar mensaje de error para el correo -->
@@ -122,8 +119,7 @@ $bd = "ejemplo";
         <input type="submit" name="enviar" value="Enviar"> <!-- Botón de enviar -->
         <div class="progress-bar"></div> <!-- Barra de progreso -->
     </form>
-
-    <!-- Script JavaScript para la validación del formulario y la barra de progreso -->
+<!-- Script JavaScript para la validación del formulario y la barra de progreso -->
     <script>
     // Seleccionar el formulario y la barra de progreso
     const form = document.getElementById('registro-form');
@@ -136,15 +132,14 @@ $bd = "ejemplo";
     function validarNombreApellido(input) {
         const regex = /^[a-zA-Z\s]*$/; // Expresión regular para letras y espacios
         return regex.test(input);
-    }
+ }
 
     // Función para validar el teléfono y la edad (solo números)
     function validarNumero(input) {
         const regex = /^[0-9]+$/; // Expresión regular para números
         return regex.test(input);
     }
-
-    // Función para validar el correo electrónico
+// Función para validar el correo electrónico
     function validarCorreo(input) {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para correo electrónico
         return regex.test(input);
@@ -154,7 +149,7 @@ $bd = "ejemplo";
     function calcularProgreso() {
         let camposCompletados = 0;
         formFields.forEach(function(field) {
-            if (field.value !== '') {
+  if (field.value !== '') {
                 // Validar según el nombre del campo
                 switch (field.name) {
                     case 'nombre':
@@ -166,7 +161,7 @@ $bd = "ejemplo";
                             mostrarError(field, 'Solo se aceptan letras en este campo.');
                         }
                         break;
-                    case 'telefono':
+ case 'telefono':
                     case 'edad':
                         if (validarNumero(field.value)) {
                             camposCompletados++;
@@ -178,7 +173,7 @@ $bd = "ejemplo";
                     case 'correo':
                         if (validarCorreo(field.value)) {
                             camposCompletados++;
-                            ocultarError(field);
+ ocultarError(field);
                         } else {
                             mostrarError(field, 'El correo electrónico debe tener un formato válido.');
                         }
@@ -189,7 +184,7 @@ $bd = "ejemplo";
             }
         });
         // Calcular el porcentaje de campos completados
-        const progreso = (camposCompletados / formFields.length) * 100;
+ const progreso = (camposCompletados / formFields.length) * 100;
         // Actualizar el ancho de la barra de progreso
         progressBar.style.width = progreso + '%';
     }
@@ -201,7 +196,7 @@ $bd = "ejemplo";
     }
 
     // Función para ocultar un mensaje de error
-    function ocultarError(input) {
+function ocultarError(input) {
         const errorElement = input.nextElementSibling; // Obtener el elemento hermano siguiente (mensaje de error)
         errorElement.textContent = ''; // Limpiar el texto del mensaje de error
     }
