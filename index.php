@@ -29,7 +29,7 @@ $bd = "Ejemplo";
         }
        }
     }
-    ?>  
+      
     
     ?>  
 <!DOCTYPE html>
