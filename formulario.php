@@ -1,20 +1,16 @@
 <?php
-// Habilitar el registro de errores de PHP para depuración
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// Configuración de la conexión a la base de datos
+$servidor = "127.0.0.1"; 
+$usuario = "micro";
+$clave = "micro_itc";
+$bd = "ats_db";
 
-// Conexión a la base de datos
-$servername = "127.0.0.1"; 
-$username = "micro";
-$password = "micro_itc";
-$dbname = "ats_db";
+// Establecer la conexión a la base de datos
+$coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
 
-// Crear la conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+// Verificar si la conexión fue exitosa
+if (!$coneccion) {
+    die("Conexión fallida: " . mysqli_connect_error());
 }
 
 // Recoger los datos del formulario y evitar valores vacíos
