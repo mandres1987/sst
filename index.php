@@ -1,37 +1,57 @@
 <?php
-    // Configuración de la conexión a la base de datos
-    $servidor = "127.0.0.1"; 
+// Configuración de la conexión a la base de datos
+$servidor = "127.0.0.1"; 
 $usuario = "micro";
 $clave = "micro_itc";
 $bd = "ejemplo";
 
 // Establecer la conexión a la base de datos
-    // Establecer la conexión a la base de datos
-    $coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
+$coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
 
-    // Verificar si se ha enviado el formulario
-    if(isset($_POST['enviar'])){
+// Verificar si la conexión fue exitosa
+if (!$coneccion) {
+    die("Conexión fallida: " . mysqli_connect_error());
+}
+
+// Verificar si se ha enviado el formulario
+if (isset($_POST['enviar'])) {
+    // Verificar si los campos del formulario no están vacíos
+    if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['edad']) && !empty($_POST['correo']) && !empty($_POST['telefono'])) {
         // Recuperar los datos del formulario
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $edad = $_POST['edad'];
         $correo = $_POST['correo'];
         $telefono = $_POST['telefono'];
-      // Crear la consulta para insertar los datos en la base de datos
-        $insertar = "INSERT INTO datos VALUES ('$nombre', '$apellido', '$edad', '$correo', '$telefono')";
-    
-        // Ejecutar la consulta
-        $resultado = mysqli_query($coneccion, $insertar);  
 
-        // Verificar si la consulta se ejecutó correctamente
-        if ($resultado) {
-            // Mostrar un mensaje de alerta en caso de éxito
+        // Crear una consulta preparada para insertar los datos en la base de datos
+        $stmt = $coneccion->prepare("INSERT INTO datos (nombre, apellido, edad, correo, telefono) VALUES (?, ?, ?, ?, ?)");
+
+        // Enlazar los parámetros a la consulta preparada
+        $stmt->bind_param("ssiss", $nombre, $apellido, $edad, $correo, $telefono);
+
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
             echo "<script>alert('Datos Registrados');</script>";
+        } else {
+            echo "<script>alert('Error al registrar los datos');</script>";
         }
-      }
-        
+		if (!$coneccion) {
+    die("Conexión fallida: " . mysqli_connect_error());
+}
+
+        // Cerrar la declaración
+        $stmt->close();
+    } else {
+        echo "<script>alert('Por favor, complete todos los campos');</script>";
+    }
+}
+
+// Cerrar la conexión a la base de datos
+mysqli_close($coneccion);
+?>
+
     
-    ?>  
 <!DOCTYPE html>
 <html lang="es">
 <head>
