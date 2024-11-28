@@ -3,7 +3,7 @@
     $servidor = "127.0.0.1"; 
 $usuario = "micro";
 $clave = "micro_itc";
-$bd = "Ejemplo";
+$bd = "ejemplo";
 
     // Establecer la conexión a la base de datos
     $coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
