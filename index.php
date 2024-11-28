@@ -1,9 +1,10 @@
 <?php
     // Configuración de la conexión a la base de datos
-    $servidor = "localhost";
-    $usuario = "micro";
-    $clave = "";
-    $bd = "ejemplo";
+    $servidor = "127.0.0.1"; 
+$usuario = "micro";
+$clave = "micro_itc";
+$bd = "ejemplo";
+
 
     // Establecer la conexión a la base de datos
     $coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
