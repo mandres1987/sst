@@ -28,7 +28,7 @@ $bd = "ejemplo";
             echo "<script>alert('Datos Registrados');</script>";
         }
        }
-    }
+    
       
     
     ?>  
