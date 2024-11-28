@@ -1,7 +1,7 @@
 <?php
     // Configuración de la conexión a la base de datos
     $servidor = "localhost";
-    $usuario = "root";
+    $usuario = "micro";
     $clave = "";
     $bd = "ejemplo";
 
