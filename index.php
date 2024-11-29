@@ -3,14 +3,12 @@
 $servidor = "127.0.0.1"; 
 $usuario = "micro";
 $clave = "micro_itc";
-$bd = "ejemplo";
+$bd = "partido";
 
 // Establecer la conexión a la base de datos
-$coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
-
-// Verificar si la conexión fue exitosa
-if (!$coneccion) {
-    die("Conexión fallida: " . mysqli_connect_error());
+$conexion = mysqli_connect('localhost', 'micro', 'micro_itc', 'ejemplo');
+if (!$conexion) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Verificar si se ha enviado el formulario
