@@ -6,10 +6,8 @@ $clave = "micro_itc";
 $bd = "partido";
 
 // Establecer la conexión a la base de datos
-$conexion = mysqli_connect('localhost', 'micro', 'micro_itc', 'partido');
-if (!$conexion) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+    // Establecer la conexión a la base de datos
+    $coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
 
 // Verificar si se ha enviado el formulario
 if (isset($_POST['enviar'])) {
