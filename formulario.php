@@ -1,16 +1,16 @@
 <?php
 // Configuración de la conexión a la base de datos
 $servidor = "127.0.0.1"; 
-$usuario = "root";
-$clave = "micro_itc";
-$bd = "ats_db";
+$usuario = "micro";
+$contraseña = "micro_itc";
+$base_datos = "ats_db";
 
 // Establecer la conexión a la base de datos
-$coneccion = mysqli_connect($servidor, $usuario, $clave, $bd);
+$conn = new mysqli($servidor, $usuario, $contraseña, $base_datos);
 
 // Verificar si la conexión fue exitosa
-if (!$coneccion) {
-    die("Conexión fallida: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
 // Recoger los datos del formulario y evitar valores vacíos
@@ -41,13 +41,13 @@ $salud = $_POST['salud'] ?? '';
 $trabajos_peligrosos = isset($_POST['trabajos']) ? implode(', ', $_POST['trabajos']) : '';
 
 // Consulta SQL utilizando sentencias preparadas
-$sql = $coneccion->prepare("INSERT INTO ats_form (ats_numero, permiso_trabajo_numero, area_trabajo, contratista, trabajo_realizar, autorizado_por, 
+$sql = $conn->prepare("INSERT INTO ats_form (ats_numero, permiso_trabajo_numero, area_trabajo, contratista, trabajo_realizar, autorizado_por, 
                        fecha_inicio, hora_inicio, fecha_finalizacion, hora_finalizacion, equipos, autorizada, riesgos, epp,
                        equipos_necesarios, bloqueos, comunicacion, senalizacion, orden, entender, saber, drogas, salud, trabajos_peligrosos) 
-                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 // Vincular las variables con la consulta preparada
-$sql->bind_param("ssssssssssssssssssssss", $ats_numero, $permiso_trabajo_numero, $area_trabajo, $contratista, $trabajo_realizar, 
+$sql->bind_param("ssssssssssssssssssssssss", $ats_numero, $permiso_trabajo_numero, $area_trabajo, $contratista, $trabajo_realizar, 
                  $autorizado_por, $fecha_inicio, $hora_inicio, $fecha_finalizacion, $hora_finalizacion, $equipos, $autorizada, 
                  $riesgos, $epp, $equipos_necesarios, $bloqueos, $comunicacion, $senalizacion, $orden, $entender, $saber, 
                  $drogas, $salud, $trabajos_peligrosos);
@@ -61,9 +61,9 @@ if ($sql->execute()) {
 
 // Cerrar la conexión
 $sql->close();
-$coneccin->close();
-
+$conn->close();
 ?>
+
 
 
 <!DOCTYPE html>
