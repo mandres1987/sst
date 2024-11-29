@@ -6,7 +6,7 @@ $clave = "micro_itc";
 $bd = "partido";
 
 // Establecer la conexión a la base de datos
-$conexion = mysqli_connect('localhost', 'micro', 'micro_itc', 'ejemplo');
+$conexion = mysqli_connect('localhost', 'micro', 'micro_itc', 'partido');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
